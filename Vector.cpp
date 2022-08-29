@@ -172,10 +172,47 @@ Rank Vector<T>::search(const T &e, Rank lo, Rank hi) const {  //在有序向量�
 
 ////二分查找 version C
 //template<typename T>
-//static Rank binSraech(T *A, T const &e, Rank lo, Rank hi) {
+//static Rank binSearch(T *A, T const &e, Rank lo, Rank hi) {
 //    while (lo < hi) {
 //        Rank mi = (lo + hi) >> 1;
 //        (e < A[mi]) ? hi = mi : lo = mi + 1;
 //    }
 //    return --lo;  //循环结束时，lo为大亍e癿元素癿最小秩，故lo - 1即不大亍e癿元素癿最大秩
 //}  //有夗个命中元素时，总能保证迒回秩最大者；查找失败时，能够迒回失败癿位置
+
+template<typename T>
+void Vector<T>::sort(Rank lo, Rank hi) {
+    switch (rand() % 5) {
+        case 1:
+            bubbleSort(lo, hi);
+            break;
+        case 2:
+            seletionSort(lo, hi);
+            break;
+        case 3:
+            mergeSort(lo, hi);
+            break;
+        case 4:
+            heapSort(lo, hi);
+            break;
+        default:
+            quickSort(lo, hi);
+            break;
+    }
+}
+
+template<typename T>
+void Vector<T>::bubbleSort(Rank lo, Rank hi) {
+    while (!bubble(lo, hi--));  //逐趟做扫描交换，直至全序
+}
+
+template<typename T>
+bool Vector<T>::bubble(Rank lo, Rank hi) {
+    bool sorted = true;
+    while (++lo < hi)  //自左向右，逐一检查各对相邻元素
+        if (_elem[lo - 1] > _elem[lo]) {
+            sorted = false;
+            std::swap(_elem[lo - 1], _elem[lo]);
+        }
+    return sorted;
+}

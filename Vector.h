@@ -11,8 +11,8 @@ typedef int Rank;
 template<typename T>
 class Vector {
 protected:
-    Rank _size;
-    int _capacity;
+    Rank _size{};
+    int _capacity{};
     T *_elem;
 
     void copyFrom(T const *A, Rank lo, Rank hi);
@@ -41,7 +41,7 @@ protected:
 
 public:
     //constructor
-    Vector(int c = DEFAULT_CAPACITY, int s = 0, T v = 0) {  //容量为c、觃模为s、所有元素刜始为v
+    explicit Vector(int c = DEFAULT_CAPACITY, int s = 0, T v = 0) {  //容量为c、觃模为s、所有元素刜始为v
         _elem = new T[_capacity = c];
         for (_size = 0; _size < s; _elem[_size++] = v);
     }  //s<=c
