@@ -1,9 +1,9 @@
 //
-// Created by zlysm on 8/16/22.
+// Created by zlysm on 8/29/22.
 //
 
-#include <iostream>
-#include "Vector.h"
+#ifndef DSA_VEC_H
+#define DSA_VEC_H
 
 template<typename T>
 void Vector<T>::copyFrom(T const *A, Rank lo, Rank hi) {
@@ -216,3 +216,5 @@ bool Vector<T>::bubble(Rank lo, Rank hi) {
         }
     return sorted;
 }
+
+#endif //DSA_VEC_H

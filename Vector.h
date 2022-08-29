@@ -2,8 +2,8 @@
 // Created by zlysm on 8/16/22.
 //
 
-#ifndef VECTOR_VECTOR_H
-#define VECTOR_VECTOR_H
+#ifndef DSA_VECTOR_H
+#define DSA_VECTOR_H
 
 typedef int Rank;
 #define DEFAULT_CAPACITY 3
@@ -105,4 +105,6 @@ public:
     void traverse(VST &); //遍历（使用函数对象，可全尿性修改）
 };
 
-#endif //VECTOR_VECTOR_H
+#include "Vec.h"
+
+#endif //DSA_VECTOR_H
