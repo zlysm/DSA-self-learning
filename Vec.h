@@ -257,4 +257,5 @@ Rank Vector<T>::max(Rank lo, Rank hi) {
     return mx;
 }
 
+
 #endif //DSA_VEC_H
