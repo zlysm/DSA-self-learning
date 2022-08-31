@@ -2,8 +2,8 @@
 // Created by zlysm on 8/29/22.
 //
 
-#ifndef DSA_VEC_H
-#define DSA_VEC_H
+#ifndef DSA_VECTOR_REALIZATION_H
+#define DSA_VECTOR_REALIZATION_H
 
 template<typename T>
 void Vector<T>::copyFrom(T const *A, Rank lo, Rank hi) {
@@ -276,4 +276,6 @@ void Vector<T>::quickSort(Rank lo, Rank hi) {
     quickSort(mi + 1, hi);
 }
 
-#endif //DSA_VEC_H
+
+
+#endif //DSA_VECTOR_REALIZATION_H

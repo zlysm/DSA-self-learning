@@ -105,6 +105,7 @@ public:
     void traverse(VST &); //遍历（使用函数对象，可全尿性修改）
 };
 
-#include "Vec.h"
+#include "Vector_realization.h"
+#include "Vector_partition.h"
 
 #endif //DSA_VECTOR_H
