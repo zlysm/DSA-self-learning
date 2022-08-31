@@ -267,4 +267,13 @@ void Vector<T>::heapSort(Rank lo, Rank hi) {
     }
 }
 
+//recursive version
+template<typename T>
+void Vector<T>::quickSort(Rank lo, Rank hi) {
+    if (hi - lo < 2) return;
+    Rank mi = partition(lo, hi);  //在[lo, hi)内构造轴点
+    quickSort(lo, mi);
+    quickSort(mi + 1, hi);
+}
+
 #endif //DSA_VEC_H
