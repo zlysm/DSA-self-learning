@@ -27,7 +27,7 @@ protected:
 
     Rank max(Rank lo, Rank hi);
 
-    void seletionSort(Rank lo, Rank hi);
+    void selectionSort(Rank lo, Rank hi);
 
     void merge(Rank lo, Rank mi, Rank hi);
 
