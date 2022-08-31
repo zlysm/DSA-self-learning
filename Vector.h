@@ -107,5 +107,4 @@ public:
 
 #include "Vec.h"
 
-
 #endif //DSA_VECTOR_H
