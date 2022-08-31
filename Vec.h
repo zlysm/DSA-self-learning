@@ -243,7 +243,6 @@ void Vector<T>::merge(Rank lo, Rank mi, Rank hi) {
 
 template<typename T>
 void Vector<T>::selectionSort(Rank lo, Rank hi) {  //向量选择排序
-    printf("\tSELECTIONsort [%3d, %3d)\n", lo, hi);
     while (lo < --hi)
         swap(_elem[max(lo, hi)], _elem[hi]); //将[hi]与[lo, hi]中的最大者交换
 }
@@ -257,5 +256,15 @@ Rank Vector<T>::max(Rank lo, Rank hi) {
     return mx;
 }
 
+template<typename T>
+void Vector<T>::heapSort(Rank lo, Rank hi) {
+    T *A = _elem + lo;
+    Rank n = hi - lo;
+    heapify(A, n);  //将待排序区间建成一个完全二叉堆，O(n)
+    while (0 < n--) {  //反复地摘除最大元并归入已排序的后缀，直至堆空
+        std::swap(A[0], A[n]);
+        percolateDown(A, n, 0);
+    }
+}
 
 #endif //DSA_VEC_H
