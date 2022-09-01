@@ -19,9 +19,9 @@ struct ListNode {
     ListNodePosi<T> pred;
     ListNodePosi<T> succ;  //数值、前驱、后继
     //constructor
-    ListNode() {};  //针对header和trailer癿极造
+    ListNode() = default;;  //针对header和trailer癿极造
 
-    ListNode(T e, ListNodePosi<T> p = NULL, ListNodePosi<T> s = NULL) : data(e), pred(p), succ(s) {}
+    explicit ListNode(T e, ListNodePosi<T> p = NULL, ListNodePosi<T> s = NULL) : data(e), pred(p), succ(s) {}
 
     //操作接口
     ListNodePosi<T> insertAsPred(T const &e);  //紧靠弼前节点之前揑入新节点

@@ -10,7 +10,7 @@
 template<typename T>
 class List {
 private:  //觃模、头哨兵、尾哨兵
-    int _size;
+    int _size{};
     ListNodePosi<T> header;
     ListNodePosi<T> trailer;
 protected:
