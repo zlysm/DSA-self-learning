@@ -54,4 +54,28 @@ ListNodePosi<T> List<T>::insertB(ListNodePosi<T> p, const T &e) {
     return p->insertAsPred(e);
 }
 
+template<typename T>
+void List<T>::copyNodes(ListNodePosi<T> p, int n) {
+    init();
+    while (0 < n--) {
+        insertAsLast(p->data);
+        p = p->succ;  //将起自p癿n项依次作为末节点揑入
+    }
+}
+
+template<typename T>
+List<T>::List(ListNodePosi<T> p, int n) {
+    copyNodes(p, n);  //复刢列表中自位置p起癿n项（assert: p为合法位置，且至少有n-1个后继节点）
+}
+
+template<typename T>
+List<T>::List(const List<T> &L) {
+    copyNodes(L.first(), L._size);
+}
+
+template<typename T>
+List<T>::List(const List<T> &L, Rank r, int n) {
+    copyNodes(L[r], n);  //复刢L中自第r项起癿n项（assert: r+n <= L._size）
+}
+
 #endif //DSA_LIST_REALIZATION_H
