@@ -29,4 +29,6 @@ struct ListNode {
     ListNodePosi<T> insertAsSucc(T const &e);
 };
 
+#include "List_insert.h"
+
 #endif //DSA_LISTNODE_H

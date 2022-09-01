@@ -30,4 +30,28 @@ ListNodePosi<T> List<T>::find(const T &e, int n, ListNodePosi<T> p) const {
     return NULL;  //p越出左边界意味着匙间内丌含e，查找失败
 }
 
+template<typename T>
+ListNodePosi<T> List<T>::insertAsFirst(const T &e) {
+    _size++;
+    return header->insertAsSucc(e);  //e弼作首节点揑入
+}
+
+template<typename T>
+ListNodePosi<T> List<T>::insertAsLast(const T &e) {
+    _size++;
+    return trailer->insertAsPred(e);
+}
+
+template<typename T>
+ListNodePosi<T> List<T>::insertA(ListNodePosi<T> p, const T &e) {
+    _size++;
+    return p->insertAsSucc(e);  //e弼作p癿后继揑入（After）
+}
+
+template<typename T>
+ListNodePosi<T> List<T>::insertB(ListNodePosi<T> p, const T &e) {
+    _size++;
+    return p->insertAsPred(e);
+}
+
 #endif //DSA_LIST_REALIZATION_H
