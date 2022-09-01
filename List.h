@@ -89,6 +89,13 @@ public:
     int uniquify(); //有序去重
 
     void reverse(); //前后倒置（习题）
+
+    //遍历
+    void traverse(void (* )(T &)); //遍历，依次实斲visit操作（函数指针，只读或局部性修改）
+
+    template<typename VST>
+
+    void traverse(VST &); //遍历，依次实斲visit操作（函数对象，可全尿性修改）
 };
 
 #include "List_realization.h"

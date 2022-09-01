@@ -102,4 +102,28 @@ int List<T>::clear() {
     return oldSize;
 }
 
+template<typename T>
+int List<T>::deduplicate() {
+    if (_size < 2)return 0;
+    int oldSize = _size;
+    ListNodePosi<T> p = header;
+    Rank r = 0;
+    while (trailer != p->succ) {
+        ListNodePosi<T> q = find(p->data, r, p);  //在p癿r个（真）前驱中查找雷同者
+        q ? remove(q) : r++;  //若癿确存在，则初除之；否则秩加一
+    }
+    return oldSize - _size;
+}
+
+template<typename T>
+void List<T>::traverse(void (*visit)(T &)) {  //借助函数指针机刢遍历
+    for (ListNodePosi<T> p = header->succ; p != trailer; p = p->succ) visit(p->data);
+}
+
+template<typename T>
+template<typename VST>  //元素类型、操作器
+void List<T>::traverse(VST &visit) {  //借助函数对象机刢遍历
+    for (ListNodePosi<T> p = header->succ; p != trailer; p = p->succ) visit(p->data);
+}
+
 #endif //DSA_LIST_REALIZATION_H
