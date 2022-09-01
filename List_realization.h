@@ -75,7 +75,9 @@ List<T>::List(const List<T> &L) {
 
 template<typename T>
 List<T>::List(const List<T> &L, Rank r, int n) {
-    copyNodes(L[r], n);  //复刢L中自第r项起癿n项（assert: r+n <= L._size）
+    ListNodePosi<T> p = L.first();
+    while (0 < r--) p = p->succ;
+    copyNodes(p, n);
 }
 
 template<typename T>
@@ -121,9 +123,29 @@ void List<T>::traverse(void (*visit)(T &)) {  //借助函数指针机刢遍历
 }
 
 template<typename T>
-template<typename VST>  //元素类型、操作器
-void List<T>::traverse(VST &visit) {  //借助函数对象机刢遍历
+template<typename VST>
+void List<T>::traverse(VST &visit) {  //元素类型、操作器    借助函数对象机刢遍历
     for (ListNodePosi<T> p = header->succ; p != trailer; p = p->succ) visit(p->data);
+}
+
+template<typename T>
+int List<T>::uniquify() {
+    if (_size < 2) return 0;
+    int oldSize = _size;
+    ListNodePosi<T> p = first();
+    ListNodePosi<T> q;
+    while (trailer != (q = p->succ)) {  //反复考查紧邻癿节点对(p, q)
+        if (p->data != q->data) p = q;  //若互异，则转向下一区段
+        else remove(q);
+    }
+    return oldSize - _size;
+}
+
+template<typename T>
+ListNodePosi<T> List<T>::search(const T &e, int n, ListNodePosi<T> p) const {  // assert: 0 <= n <= rank(p) < _size
+    while (0 <= n--)  //对亍p癿最近癿n个前驱，从右向左逐个比较, 向前n个找不大于e的最后者（有序列表）
+        if (((p = p->pred)->data) <= e) break;
+    return p;
 }
 
 #endif //DSA_LIST_REALIZATION_H
