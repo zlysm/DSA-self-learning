@@ -91,4 +91,6 @@ public:
     void reverse(); //前后倒置（习题）
 };
 
+#include "List_realization.h"
+
 #endif //DSA_LIST_H
