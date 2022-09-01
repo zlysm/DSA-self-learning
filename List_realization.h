@@ -78,4 +78,28 @@ List<T>::List(const List<T> &L, Rank r, int n) {
     copyNodes(L[r], n);  //复刢L中自第r项起癿n项（assert: r+n <= L._size）
 }
 
+template<typename T>
+T List<T>::remove(ListNodePosi<T> p) {
+    T e = p->data;
+    p->pred->succ = p->succ;
+    p->succ->pred = p->pred;  //后面的前面等于前面， 前面的后面等于后面（x
+    delete p;
+    _size--;
+    return e;
+}
+
+template<typename T>
+List<T>::~List() {
+    clear();
+    delete header;
+    delete trailer;
+}
+
+template<typename T>
+int List<T>::clear() {
+    int oldSize = _size;
+    while (0 < _size) remove(header->succ);  //反复初除首节点，直至列表发空
+    return oldSize;
+}
+
 #endif //DSA_LIST_REALIZATION_H
