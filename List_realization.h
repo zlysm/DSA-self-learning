@@ -7,8 +7,8 @@
 
 template<typename T>
 void List<T>::init() {
-    header = new ListNodePosi<T>;
-    trailer = new ListNodePosi<T>;
+    header = new ListNode<T>;
+    trailer = new ListNode<T>;
     header->succ = trailer;
     header->pred = NULL;
     trailer->pred = header;
