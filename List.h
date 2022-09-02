@@ -55,8 +55,6 @@ public:
 
     bool valid(ListNodePosi<T> p) { return p && (trailer != p) && (header != p); } //判断位置p是否对外合法  将头、尾节点等同亍NULL
 
-    int disordered() const; //刞断列表是否已排序
-
     ListNodePosi<T> find(T const &e) const { return find(e, _size, trailer); }//无序列表查找
 
     ListNodePosi<T> find(T const &e, int n, ListNodePosi<T> p) const; //无序匙间查找
@@ -100,5 +98,6 @@ public:
 };
 
 #include "List_realization.h"
+#include "List_reverse.h"
 
 #endif //DSA_LIST_H
