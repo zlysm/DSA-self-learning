@@ -22,5 +22,5 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 - **C++ templates should be placed in the header file!!!**
 - divide and conquer.
 - Shifting instead of multiplying/dividing by 2.
-- `ListNode<T>::insertAsPred` in [`List_insert.h`](./List_insert.h).
+- `ListNode<T>::insertAsPred` in [`ListNode_insert.h`](./ListNode_insert.h).
 - `List<T>::remove` in [`List_realization.h`](./List_realization.h).

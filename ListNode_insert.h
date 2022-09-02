@@ -2,8 +2,8 @@
 // Created by zlysm on 9/1/22.
 //
 
-#ifndef DSA_LIST_INSERT_H
-#define DSA_LIST_INSERT_H
+#ifndef DSA_LISTNODE_INSERT_H
+#define DSA_LISTNODE_INSERT_H
 
 template<typename T>
 ListNodePosi<T> ListNode<T>::insertAsPred(const T &e) {  //将e紧靠弼前节点乀前揑入亍弼前节点所属列表（讴有哨兵头节点header）
@@ -21,4 +21,4 @@ ListNodePosi<T> ListNode<T>::insertAsSucc(const T &e) {
     return x;
 }
 
-#endif //DSA_LIST_INSERT_H
+#endif //DSA_LISTNODE_INSERT_H

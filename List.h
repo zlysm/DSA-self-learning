@@ -37,7 +37,7 @@ public:
 
     List(List<T> const &L, Rank r, int n);  //复制L中自r起的n项
 
-    List(ListNodePosi<T>, int n);
+    List(ListNodePosi<T> p, int n);
 
     //destructor
     ~List();
