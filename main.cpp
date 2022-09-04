@@ -1,7 +1,4 @@
-#include <iostream>
-#include "Vector.h"
-#include "List.h"
-#include "Stack.h"
+#include "main_implementetion.h"
 
 int main() {
 

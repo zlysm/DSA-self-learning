@@ -3,4 +3,4 @@ project(dsa)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(dsa main.cpp Vector.h Vector_realization.h Vector_partition.h ListNode.h List.h List_realization.h ListNode_insert.h List_reverse.h Stack.h Stack_application.cpp Stack_application.h Queue.h)
+add_executable(dsa main.cpp Vector.h Vector_realization.h Vector_partition.h ListNode.h List.h List_realization.h ListNode_insert.h List_reverse.h Stack.h Stack_application.cpp Stack_application.h Queue.h main_implementetion.h)
