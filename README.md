@@ -17,6 +17,10 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 - `List<T>::merge` and `List<T>::radixSort` in [`List_realization.h`](./List_realization.h).
 - [`List_reverse.h`](./List_reverse.h).
 
+### Stack
+
+- Chapter 4.4 试探回溯法
+
 ## Tips & Attention:
 
 - **C++ templates should be placed in the header file!!!**
