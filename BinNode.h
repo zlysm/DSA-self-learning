@@ -78,4 +78,6 @@ struct BinNode {
     BinNodePosi<T> imitate(const BinNodePosi<T>); //临摹
 };
 
+#include "BinNode_realization.h"
+
 #endif //DSA_BINNODE_H
