@@ -63,4 +63,6 @@ public:
     { return _root && t._root && (_root == t._root); }
 }; //BinTree
 
+#include "BinTree_realization.h"
+
 #endif //DSA_BINTREE_H
