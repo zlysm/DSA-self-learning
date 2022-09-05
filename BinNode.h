@@ -79,5 +79,6 @@ struct BinNode {
 };
 
 #include "BinNode_realization.h"
+#include "BinNode_macro.h"  //快捷方式
 
 #endif //DSA_BINNODE_H
