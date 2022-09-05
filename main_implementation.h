@@ -12,5 +12,6 @@
 #include "List.h"
 #include "Stack.h"
 #include "Queue.h"
+#include "BinNode.h"
 
 #endif //DSA_MAIN_IMPLEMENTATION_H
