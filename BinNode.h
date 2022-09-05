@@ -36,7 +36,7 @@ struct BinNode {
     //constructor
     BinNode() : parent(NULL), lc(NULL), rc(NULL), height(0), npl(1), color(RB_RED) {}
 
-    BinNode(T e, BinNodePosi<T> p = NULL, BinNodePosi<T> lc = NULL, BinNodePosi<T> rc = NULL,
+    explicit BinNode(T e, BinNodePosi<T> p = NULL, BinNodePosi<T> lc = NULL, BinNodePosi<T> rc = NULL,
             int h = 0, int l = 1, RBColor c = RB_RED) :
             data(e), parent(p), lc(lc), rc(rc), height(h), npl(l), color(c) {}
 
