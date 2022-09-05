@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
+#include "_share.h"
 #include "Vector.h"
 #include "List.h"
 #include "Stack.h"
