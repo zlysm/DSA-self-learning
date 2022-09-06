@@ -37,7 +37,7 @@ struct BinNode {
     BinNode() : parent(NULL), lc(NULL), rc(NULL), height(0), npl(1), color(RB_RED) {}
 
     explicit BinNode(T e, BinNodePosi<T> p = NULL, BinNodePosi<T> lc = NULL, BinNodePosi<T> rc = NULL,
-            int h = 0, int l = 1, RBColor c = RB_RED) :
+                     int h = 0, int l = 1, RBColor c = RB_RED) :
             data(e), parent(p), lc(lc), rc(rc), height(h), npl(l), color(c) {}
 
     //interface
@@ -53,13 +53,13 @@ struct BinNode {
     void travLevel(VST &); //子树层次遍历
 
     template<typename VST>
-    void travPre(VST &); //子树先序遍历
+    void travPre(VST &); //子树先序遍历：先访问根节点，左节点遍历完再遍历右节点
 
     template<typename VST>
     void travIn(VST &); //子树中序遍历
 
     template<typename VST>
-    void travPost(VST &); //子树后序遍历
+    void travPost(VST &); //子树后序遍历：遍历完左子数再右子数，最后根节点
 
     template<typename VST>
     void traverse(VST &); //自定义遍历
@@ -80,6 +80,7 @@ struct BinNode {
 
 #include "BinNode_realization.h"
 #include "BinNode_macro.h"  //快捷方式
-#include "BinNode_travPreorder.h"
+#include "BinNode_travPreorder.h"  //先序遍历
+#include "BinNode_travPostorder.h"  //后序遍历
 
 #endif //DSA_BINNODE_H
