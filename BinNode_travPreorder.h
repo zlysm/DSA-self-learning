@@ -52,7 +52,7 @@ void travPre_I2(BinNodePosi<T> x, VST &visit) {
 }
 
 template<typename T, typename VST>
-static void visitAlongVine(BinNodePosi<T> x, VST &visit, Stack<BinNodePosi<T>> S) {
+static void visitAlongVine(BinNodePosi<T> x, VST &visit, Stack<BinNodePosi<T>> &S) {
     while (x) {  //从当前节点出发，沿左分支不断深入，直至没有左分支的节点；沿途节点遇到后立即访问
         visit(x->data);
         S.push(x->rc);  //右孩子入栈暂存（可优化：通过判断，避免空的右孩子入栈）
