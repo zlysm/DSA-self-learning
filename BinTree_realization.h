@@ -81,4 +81,16 @@ static int removeAt(BinNodePosi<T> x) {
     return n;
 }
 
+template<typename T>
+BinTree<T> *BinTree<T>::secede(BinNodePosi<T> x) {
+    FromParentTo(*x) = NULL;  //切断来自父节点的指针
+    updateHeightAbove(x->parent);
+    auto *S = new BinTree<T>;
+    S->_root = x;
+    x->parent = NULL;  //新树以x为根
+    S->_size = x->size();
+    _size -= S->_size;
+    return S;  //更新规模，返回分离出来的子树
+}
+
 #endif //DSA_BINTREE_REALIZATION_H
