@@ -23,7 +23,7 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 
 ### BinTree:
 
-- [`BinNode_macro`](./BinNode_macro.h)  useful.
+- traverse in `BinNode_trav****.h`.
 
 ## Tips & Attention:
 
@@ -32,3 +32,17 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 - Shifting instead of multiplying/dividing by 2.
 - `ListNode<T>::insertAsPred` in [`ListNode_insert.h`](./ListNode_insert.h).
 - `List<T>::remove` in [`List_realization.h`](./List_realization.h).
+- [`BinNode_macro`](./BinNode_macro.h)  useful.
+
+## Figures:
+
+- traverse
+<div style="text-align: center">
+<span></span>
+<img src="figures/preorder-traversal.png" alt="travPre">
+<span></span>
+<img src="figures/postorder-traversal.png" alt="travPost">
+<span></span>
+<img src="figures/inorder-traversal.png" alt="travIn">
+<span></span>
+</div>
