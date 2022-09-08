@@ -14,7 +14,7 @@ typedef enum {  //节点颜色
 template<typename T>
 struct BinNode;
 
-template<typename T> using BinNodePosi = BinNode<T>;
+template<typename T> using BinNodePosi = BinNode<T> *;
 
 template<typename T>
 struct BinNode {
@@ -78,8 +78,8 @@ struct BinNode {
     BinNodePosi<T> imitate(const BinNodePosi<T>); //临摹
 };
 
-#include "BinNode_realization.h"
 #include "BinNode_macro.h"  //快捷方式
+#include "BinNode_realization.h"
 #include "BinNode_travPreorder.h"  //先序遍历
 #include "BinNode_travPostorder.h"  //后序遍历
 #include "BinNode_travInorder.h"  //中序遍历
