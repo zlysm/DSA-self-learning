@@ -10,7 +10,7 @@ template<typename T>
 void List<T>::reverse() {
     ListNodePosi<T> p = header;
     ListNodePosi<T> q = trailer;
-    for (int i = 1; i < _size; i += 2)   //£¨´ÓÊ×¡¢Ä©½Úµã¿ªÊ¼£©ÓÉÍâ¶øÄÚ£¬×½¶ÔµØ½»»»¶Ô³Æ½ÚµãµÄÊı¾İÏî
+    for (int i = 1; i < _size; i += 2)   //ï¼ˆä»é¦–ã€æœ«èŠ‚ç‚¹å¼€å§‹ï¼‰ç”±å¤–è€Œå†…ï¼Œæ‰å¯¹åœ°äº¤æ¢å¯¹ç§°èŠ‚ç‚¹çš„æ•°æ®é¡¹
         std::swap((p = p->succ)->data, (q = q->pred)->data);
 }
 
@@ -19,23 +19,23 @@ void List<T>::reverse() {
 //void List<T>::reverse() {
 //    if (_size < 2) return;
 //    for (ListNodePosi<T> p = header; p; p = p->pred)
-//        std::swap(p->pred, p->succ);  //×ÔÇ°Ïòºó£¬ÒÀ´Î½»»»¸÷½ÚµãµÄÇ°Çı¡¢ºó¼ÌÖ¸Õë
+//        std::swap(p->pred, p->succ);  //è‡ªå‰å‘åï¼Œä¾æ¬¡äº¤æ¢å„èŠ‚ç‚¹çš„å‰é©±ã€åç»§æŒ‡é’ˆ
 //    std::swap(header, trailer);
 //}
 
 ////version C
 //template<typename T>
 //void List<T>::reverse() {
-//    if (_size < 2) return; //Æ½·²Çé¿ö
+//    if (_size < 2) return; //å¹³å‡¡æƒ…å†µ
 //    ListNodePosi<T> p;
 //    ListNodePosi<T> q;
 //    for (p = header, q = p->succ; p != trailer; p = q, q = p->succ)
-//        p->pred = q; //×ÔÇ°Ïòºó£¬ÒÀ´Îµßµ¹¸÷½ÚµãµÄÇ°ÇıÖ¸Õë
-//    trailer->pred = NULL; //µ¥¶ÀÉèÖÃÎ²½ÚµãµÄÇ°ÇıÖ¸Õë
+//        p->pred = q; //è‡ªå‰å‘åï¼Œä¾æ¬¡é¢ å€’å„èŠ‚ç‚¹çš„å‰é©±æŒ‡é’ˆ
+//    trailer->pred = NULL; //å•ç‹¬è®¾ç½®å°¾èŠ‚ç‚¹çš„å‰é©±æŒ‡é’ˆ
 //    for (p = header, q = p->pred; p != trailer; p = q, q = p->pred)
-//        q->succ = p; //×ÔÇ°Ïòºó£¬ÒÀ´Îµßµ¹¸÷½ÚµãµÄºó¼ÌÖ¸Õë
-//    header->succ = NULL; //µ¥¶ÀÉèÖÃÍ·½ÚµãµÄºó¼ÌÖ¸Õë
-//    swap(header, trailer); //Í·¡¢Î²½Úµã»¥»»
+//        q->succ = p; //è‡ªå‰å‘åï¼Œä¾æ¬¡é¢ å€’å„èŠ‚ç‚¹çš„åç»§æŒ‡é’ˆ
+//    header->succ = NULL; //å•ç‹¬è®¾ç½®å¤´èŠ‚ç‚¹çš„åç»§æŒ‡é’ˆ
+//    swap(header, trailer); //å¤´ã€å°¾èŠ‚ç‚¹äº’æ¢
 //}
 
 #endif //DSA_LIST_REVERSE_H
