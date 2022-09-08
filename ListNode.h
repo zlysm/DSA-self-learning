@@ -19,7 +19,7 @@ struct ListNode {
     ListNodePosi<T> pred;
     ListNodePosi<T> succ;  //数值、前驱、后继
     //constructor
-    ListNode() = default;;  //针对header和trailer癿极造
+    ListNode() = default;  //针对header和trailer癿极造
 
     explicit ListNode(T e, ListNodePosi<T> p = NULL, ListNodePosi<T> s = NULL) : data(e), pred(p), succ(s) {}
 

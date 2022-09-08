@@ -26,7 +26,7 @@ BinNodePosi<T> BinTree<T>::insert(const T &e) {
 template<typename T>
 BinNodePosi<T> BinTree<T>::insert(const T &e, BinNodePosi<T> x) {  //e插入为x的左孩子
     _size++;
-    x.insertAsLC(e);
+    x->insertAsLC(e);
     updateHeightAbove(x);
     return x->lc;
 }
@@ -34,7 +34,7 @@ BinNodePosi<T> BinTree<T>::insert(const T &e, BinNodePosi<T> x) {  //e插入为x
 template<typename T>
 BinNodePosi<T> BinTree<T>::insert(BinNodePosi<T> x, const T &e) {  //e插入为x的右孩子
     _size++;
-    x.insertAsRC(e);
+    x->insertAsRC(e);
     updateHeightAbove(x);
     return x->rc;
 }
