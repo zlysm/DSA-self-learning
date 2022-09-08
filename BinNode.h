@@ -5,7 +5,11 @@
 #ifndef DSA_BINNODE_H
 #define DSA_BINNODE_H
 
-#define stature(p) ((p) ? (p)->height : -1)  //节点高度
+#ifdef DSA_REDBLACK_H
+#define stature(p) ((p) ? (p)->height : 0) //红黑树节点的黑高度（NULL视作外部节点，对应于0）
+#else
+#define stature(p) ((p) ? (p)->height : -1)  //其余BST中节点的高度（NUll视作空树，对应于-1）
+#endif
 
 typedef enum {  //节点颜色
     RB_RED, RB_BLACK
