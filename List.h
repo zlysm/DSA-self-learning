@@ -20,7 +20,7 @@ protected:
 
     void copyNodes(ListNodePosi<T>, int);
 
-    void merge(ListNodePosi<T> &, int, List<T> &, ListNodePosi<T> &, int);
+    ListNodePosi<T> merge(ListNodePosi<T>, int, List<T> &, ListNodePosi<T>, int);
 
     void mergeSort(ListNodePosi<T> &, int);  //对从p开始的n个节点进行排序
 
@@ -78,7 +78,7 @@ public:
 
     T remove(ListNodePosi<T> p); //初除合法位置p处癿节点,迒回被初除节点
 
-    void merge(List<T> &L) { merge(first(), _size, L, L.first(), L._size); } //全列表弻幵
+    void merge(List<T> &L) { merge(header->succ, _size, L, L.header->succ, L._size); } //全列表弻幵
 
     void sort(ListNodePosi<T> p, int n); //列表匙间排序
 
