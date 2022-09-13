@@ -5,6 +5,8 @@
 #ifndef DSA_BINNODE_REALIZATION_H
 #define DSA_BINNODE_REALIZATION_H
 
+#include "Queue.h"
+
 template<typename T>
 BinNodePosi<T> BinNode<T>::insertAsLC(const T &e) {  //将e作为弼前节点癿左孩子揑入二叉树
     return lc = new BinNode(e, this);
@@ -34,6 +36,19 @@ BinNodePosi<T> BinNode<T>::succ() { //定位节点v的直接后继
         s = s->parent; //最后再朝右上方移动一步，即抵达直接后继（如果存在）
     }
     return s;
+}
+
+template<typename T>
+template<typename VST>
+void BinNode<T>::travLevel(VST &visit) {  //二叉树层次遍历算法
+    Queue<BinNodePosi<T>> Q;
+    Q.enqueue(this);  //根节点入队
+    while (!Q.empty()) {  //在队列再次变空之前，反复迭代
+        BinNodePosi<T> x = Q.dequeue();
+        visit(x->data);  //取出队首节点并访问之
+        if (HasLChild (*x)) Q.enqueue(x->lc); //左孩子入队
+        if (HasRChild (*x)) Q.enqueue(x->rc); //右孩子入队
+    }
 }
 
 #endif //DSA_BINNODE_REALIZATION_H
