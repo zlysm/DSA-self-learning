@@ -51,4 +51,44 @@ void BinNode<T>::travLevel(VST &visit) {  //二叉树层次遍历算法
     }
 }
 
+template<typename T>
+BinNodePosi<T> BinNode<T>::zig() {  //顺时针旋转
+    BinNodePosi<T> lChild = lc;
+    lChild->parent = this->parent;
+    if (lChild->parent)
+        ((this == lChild->parent->rc) ? lChild->parent->rc : lChild->parent->lc) = lChild;
+    lc = lChild->rc;
+    if (lc) lc->parent = this;
+    lChild->rc = this;
+    this->parent = lChild;
+    height = 1 + max(stature (lc), stature (rc));  // update heights ()
+    lChild->height = 1 + max(stature (lChild->lc), stature (lChild->rc));
+    for (BinNodePosi<T> x = lChild->parent; x; x = x->parent)
+        if (HeightUpdated(*x))
+            break;
+        else
+            x->height = 1 + max(stature (x->lc), stature (x->rc));
+    return lChild;
+}
+
+template<typename T>
+BinNodePosi<T> BinNode<T>::zag() { //顺时针旋转
+    BinNodePosi<T> rChild = rc;
+    rChild->parent = this->parent;
+    if (rChild->parent)
+        ((this == rChild->parent->lc) ? rChild->parent->lc : rChild->parent->rc) = rChild;
+    rc = rChild->lc;
+    if (rc) rc->parent = this;
+    rChild->lc = this;
+    this->parent = rChild;
+    height = 1 + max(stature (lc), stature (rc));  // update heights
+    rChild->height = 1 + max(stature (rChild->lc), stature (rChild->rc));
+    for (BinNodePosi<T> x = rChild->parent; x; x = x->parent)
+        if (HeightUpdated(*x))
+            break;
+        else
+            x->height = 1 + max(stature (x->lc), stature (x->rc));
+    return rChild;
+}
+
 #endif //DSA_BINNODE_REALIZATION_H
