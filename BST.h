@@ -25,4 +25,6 @@ public:
     virtual bool remove(const T &e);
 };
 
+#include "BST_realization.h"
+
 #endif //DSA_BST_H

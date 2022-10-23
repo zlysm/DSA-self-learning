@@ -14,5 +14,6 @@
 #include "Stack.h"
 #include "Queue.h"
 #include "BinTree.h"
+#include "BST.h"
 
 #endif //DSA_MAIN_IMPLEMENTATION_H
