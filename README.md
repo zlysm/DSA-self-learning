@@ -25,6 +25,10 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 
 - traverse in `BinNode_trav****.h`.
 
+### BST(Binary Search Tree):
+
+- removeAt in [`BST_realization.h`](./BST_realization.h).
+
 ## Tips & Attention:
 
 - **C++ templates should be placed in the header file!!!**
@@ -33,6 +37,7 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 - `ListNode<T>::insertAsPred` in [`ListNode_insert.h`](./ListNode_insert.h).
 - `List<T>::remove` in [`List_realization.h`](./List_realization.h).
 - [`BinNode_macro`](./BinNode_macro.h)  useful.
+- Template class inheritance required `this->` or `ClassName<T>::`.
 
 ## Figures:
 
