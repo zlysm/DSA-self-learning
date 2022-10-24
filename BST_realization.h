@@ -50,11 +50,13 @@ BinNodePosi<T> &BST<T>::search(const T &e) { //在BST中查找关键码e
 template<typename T>
 BinNodePosi<T> BST<T>::insert(const T &e) {
     BinNodePosi<T> &x = search(e);
-    if (x) return x;
+    if (x) return x;  //已有雷同节点
     x = new BinNode<T>(e, _hot);
     ++BinTree<T>::_size;
     BinTree<T>::updateHeightAbove(x);
     return x;
 }
+
+
 
 #endif //DSA_BST_REALIZATION_H
