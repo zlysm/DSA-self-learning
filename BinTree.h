@@ -27,7 +27,7 @@ public:
 
     BinNodePosi<T> root() const { return _root; } //树根
 
-    BinNodePosi<T> insert(T const &); //插入根节点
+    virtual BinNodePosi<T> insert(T const &); //插入根节点
 
     BinNodePosi<T> insert(T const &, BinNodePosi<T>); //插入左孩子
 
