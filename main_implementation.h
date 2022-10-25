@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
+#include <climits>
 #include "_share.h"
 #include "Vector.h"
 #include "List.h"
@@ -15,5 +16,6 @@
 #include "Queue.h"
 #include "BinTree.h"
 #include "BST.h"
+#include "Graph.h"
 
 #endif //DSA_MAIN_IMPLEMENTATION_H
