@@ -17,5 +17,6 @@
 #include "BinTree.h"
 #include "BST.h"
 #include "Graph.h"
+#include "GraphMatrix.h"
 
 #endif //DSA_MAIN_IMPLEMENTATION_H
