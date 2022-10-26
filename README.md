@@ -37,7 +37,7 @@ https://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm
 - `ListNode<T>::insertAsPred` in [`ListNode_insert.h`](./ListNode_insert.h).
 - `List<T>::remove` in [`List_realization.h`](./List_realization.h).
 - [`BinNode_macro`](./BinNode_macro.h)  useful.
-- Template class inheritance required `this->` or `ClassName<T>::`.
+- Template class inheritance required `this->` or `ClassName<T>::`, only for class member.
 
 ## Figures:
 
