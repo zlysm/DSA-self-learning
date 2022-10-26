@@ -57,7 +57,7 @@ public:
     virtual Rank firstNbr(Rank i) { return nextNbr(i, Graph<Tv, Te>::n); }
 
     virtual Rank nextNbr(Rank i, Rank j) {
-        while ((-1 < j) && (!Graph<Tv, Te>::exists(i, --j)));  //逆向线性试探
+        while ((-1 < j) && (!exists(i, --j)));  //逆向线性试探
         return j;
     }
 
@@ -76,12 +76,12 @@ public:
         for (Rank j = 0; j < Graph<Tv, Te>::n; ++j) E[j].insert(NULL);  //各顶点预留一条潜在的关联边
         ++Graph<Tv, Te>::n;
         E.insert(Vector<Edge<Te> *>(Graph<Tv, Te>::n, Graph<Tv, Te>::n, (Edge<Te> *) NULL));  //创建新顶点对应的边向量
-        return V.insert(Vector<Tv>(vertex));  //顶点向量增加一个顶点
+        return V.insert(Vertex<Tv>(vertex));  //顶点向量增加一个顶点
     }
 
     virtual Tv remove(Rank i) {  //删除第i个顶点及其关联边（0 <= i < n）
         for (Rank j = 0; j < Graph<Tv, Te>::n; j++)  //所有出边
-            if (Graph<Tv, Te>::exists(i, j)) {  //逐条删除
+            if (exists(i, j)) {  //逐条删除
                 delete E[i][j];
                 V[j].inDegree--;
                 Graph<Tv, Te>::e--;
