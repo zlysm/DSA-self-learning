@@ -15,4 +15,6 @@ public:
     bool remove(const T &e);
 };
 
+#include "AVL_marco.h"
+
 #endif //DSA_AVL_H
