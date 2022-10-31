@@ -16,5 +16,6 @@ public:
 };
 
 #include "AVL_marco.h"
+#include "AVL_realization.h"
 
 #endif //DSA_AVL_H
