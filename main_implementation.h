@@ -18,5 +18,6 @@
 #include "BST.h"
 #include "Graph.h"
 #include "GraphMatrix.h"
+#include "AVL.h"
 
 #endif //DSA_MAIN_IMPLEMENTATION_H
