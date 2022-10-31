@@ -36,11 +36,11 @@ BinNodePosi<T> BST<T>::connect34(
 
 template<typename T>
 BinNodePosi<T> &BST<T>::search(const T &e) { //在BST中查找关键码e
-    if (!BinTree<T>::_root || e == BinTree<T>::_root->data) {
+    if (!this->_root || e == this->_root->data) {
         _hot = NULL;
-        return BinTree<T>::_root;
+        return this->_root;
     } //空树，或恰在树根命中
-    for (_hot = BinTree<T>::_root;;) { //否则，自顶而下
+    for (_hot = this->_root;;) { //否则，自顶而下
         BinNodePosi<T> &v = (e < _hot->data) ? _hot->lc : _hot->rc; //确定方向，深入一层
         if (!v || e == v->data) return v;
         _hot = v; //一旦命中或抵达叶子，随即返回
@@ -52,8 +52,8 @@ BinNodePosi<T> BST<T>::insert(const T &e) {
     BinNodePosi<T> &x = search(e);
     if (x) return x;  //已有雷同节点
     x = new BinNode<T>(e, _hot);
-    ++BinTree<T>::_size;
-    BinTree<T>::updateHeightAbove(x);
+    ++this->_size;
+    this->updateHeightAbove(x);
     return x;
 }
 
@@ -83,8 +83,8 @@ bool BST<T>::remove(const T &e) {
     BinNodePosi<T> &x = search(e);
     if (!x) return false;
     removeAt(x, _hot);
-    BinTree<T>::_size--;
-    BinTree<T>::updateHeightAbove(_hot);
+    this->_size--;
+    this->updateHeightAbove(_hot);
     return true;
 }
 

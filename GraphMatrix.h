@@ -39,11 +39,11 @@ private:
     Vector<Vector<Edge<Te> *>> E;  //边集（邻接矩阵）
 
 public:
-    GraphMatrix() { Graph<Tv, Te>::n = Graph<Tv, Te>::e = 0; }
+    GraphMatrix() { this->n = this->e = 0; }
 
     ~GraphMatrix() {
-        for (Rank j = 0; j < Graph<Tv, Te>::n; ++j)
-            for (Rank k = 0; k < Graph<Tv, Te>::e; ++k)
+        for (Rank j = 0; j < this->n; ++j)
+            for (Rank k = 0; k < this->e; ++k)
                 delete E[j][k];
     }
 
@@ -54,7 +54,7 @@ public:
 
     virtual int outDegree(Rank i) { return V[i].outDegree; }
 
-    virtual Rank firstNbr(Rank i) { return nextNbr(i, Graph<Tv, Te>::n); }
+    virtual Rank firstNbr(Rank i) { return nextNbr(i, this->n); }
 
     virtual Rank nextNbr(Rank i, Rank j) {
         while ((-1 < j) && (!exists(i, --j)));  //逆向线性试探
@@ -73,35 +73,35 @@ public:
 
 // 顶点的动态操作
     virtual Rank insert(Tv const &vertex) {
-        for (Rank j = 0; j < Graph<Tv, Te>::n; ++j) E[j].insert(NULL);  //各顶点预留一条潜在的关联边
-        ++Graph<Tv, Te>::n;
-        E.insert(Vector<Edge<Te> *>(Graph<Tv, Te>::n, Graph<Tv, Te>::n, (Edge<Te> *) NULL));  //创建新顶点对应的边向量
+        for (Rank j = 0; j < this->n; ++j) E[j].insert(NULL);  //各顶点预留一条潜在的关联边
+        ++this->n;
+        E.insert(Vector<Edge<Te> *>(this->n, this->n, (Edge<Te> *) NULL));  //创建新顶点对应的边向量
         return V.insert(Vertex<Tv>(vertex));  //顶点向量增加一个顶点
     }
 
     virtual Tv remove(Rank i) {  //删除第i个顶点及其关联边（0 <= i < n）
-        for (Rank j = 0; j < Graph<Tv, Te>::n; j++)  //所有出边
+        for (Rank j = 0; j < this->n; j++)  //所有出边
             if (exists(i, j)) {  //逐条删除
                 delete E[i][j];
                 V[j].inDegree--;
-                Graph<Tv, Te>::e--;
+                this->e--;
             }
         E.remove(i);  //删除第i行
-        Graph<Tv, Te>::n--;
+        this->n--;
         Tv vBak = vertex(i);
         V.remove(i);  //删除顶点i
-        for (Rank j = 0; j < Graph<Tv, Te>::n; j++)  //所有入边
+        for (Rank j = 0; j < this->n; j++)  //所有入边
             if (Edge<Te> *x = E[j].remove(i)) { //逐条删除
                 delete x;
                 V[j].outDegree--;
-                Graph<Tv, Te>::e--;
+                this->e--;
             }
         return vBak; //返回被删除顶点的信息
     }
 
 // 边的确认操作
     virtual bool exists(Rank i, Rank j) //边(i, j)是否存在
-    { return (i < Graph<Tv, Te>::n) && (j < Graph<Tv, Te>::n) && E[i][j] != NULL; }  //i, j 小于总顶点n且矩阵不为空
+    { return (i < this->n) && (j < this->n) && E[i][j] != NULL; }  //i, j 小于总顶点n且矩阵不为空
 
 // 边的基本操作：查询顶点i与j之间的联边（0 <= i, j < n且exists(i, j)）
     virtual EType &type(Rank i, Rank j) { return E[i][j]->type; }
@@ -114,7 +114,7 @@ public:
     virtual void insert(Te const &edge, int w, Rank i, Rank j) { //插入权重为w的边(i, j)
         if (exists(i, j)) return;  //确保该边尚不存在
         E[i][j] = new Edge<Te>(edge, w);  //创建新边
-        Graph<Tv, Te>::e++;
+        this->e++;
         V[i].outDegree++;
         V[j].inDegree++;  //更新边计数与关联顶点的度数
     }
@@ -123,7 +123,7 @@ public:
         Te eBak = edge(i, j);
         delete E[i][j];
         E[i][j] = NULL;  //备份后删除边记录
-        Graph<Tv, Te>::e--;
+        this->e--;
         V[i].outDegree--;
         V[j].inDegree--;  //更新边计数与关联顶点的度数
         return eBak;  //返回被删除边的信息
