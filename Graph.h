@@ -99,5 +99,6 @@ public:
 };
 
 #include "Graph_bfs.h"
+#include "Graph_dfs.h"
 
 #endif //DSA_GRAPH_H
