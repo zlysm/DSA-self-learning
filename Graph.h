@@ -98,4 +98,6 @@ public:
     void pfs(Rank, PU);  //优先级搜索框架
 };
 
+#include "Graph_realization.h"
+
 #endif //DSA_GRAPH_H
