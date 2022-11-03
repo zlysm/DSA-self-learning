@@ -2,8 +2,8 @@
 // Created by zlysm on 11/3/22.
 //
 
-#ifndef DSA_GRAPH_REALIZATION_H
-#define DSA_GRAPH_REALIZATION_H
+#ifndef DSA_GRAPH_BFS_H
+#define DSA_GRAPH_BFS_H
 
 template<typename Tv, typename Te>
 void Graph<Tv, Te>::bfs(Rank s) {
@@ -47,4 +47,4 @@ struct BfsPU { //针对BFS算法的顶点优先级更新器
     }
 };
 
-#endif //DSA_GRAPH_REALIZATION_H
+#endif //DSA_GRAPH_BFS_H

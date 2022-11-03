@@ -40,7 +40,7 @@ private:
 
 public:
 // 顶点
-    int n; //顶点总数
+    int n{}; //顶点总数
 
     virtual Rank insert(Tv const &) = 0;
 
@@ -67,7 +67,7 @@ public:
     virtual int &priority(Rank) = 0;
 
 // 边：约定无向边均统一转化为方向互逆的一对有向边，从而将无向图视作有向图的特例
-    int e;  //总边数
+    int e{};  //总边数
 
     virtual bool exists(Rank, Rank) = 0;  //边(u, v)是否存在
 
@@ -98,6 +98,6 @@ public:
     void pfs(Rank, PU);  //优先级搜索框架
 };
 
-#include "Graph_realization.h"
+#include "Graph_bfs.h"
 
 #endif //DSA_GRAPH_H
